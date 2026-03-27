@@ -20,7 +20,6 @@
       --dark: #021a2e;
       --text: #333;
       --success: #2ecc71;
-      --beige: #b09b79;
     }
 
     html {
@@ -82,7 +81,7 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 30px;
+      gap: 25px;
       align-items: center;
     }
 
@@ -119,7 +118,6 @@
       font-size: 14px;
       letter-spacing: 2px;
       font-weight: bold;
-      margin-top: 0;
     }
 
     .hero {
@@ -194,12 +192,13 @@
       text-decoration: none;
       transition: all 0.3s;
       display: inline-block;
+      border: none;
+      cursor: pointer;
     }
 
     .btn-primary {
       background-color: var(--secondary);
       color: white;
-      border: none;
     }
 
     .btn-primary:hover {
@@ -595,6 +594,91 @@
       font-size: 16px;
     }
 
+    .mobility-section {
+      padding: 80px 60px;
+      background-color: var(--light);
+    }
+
+    .mobility-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .mobility-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s;
+      text-align: center;
+    }
+
+    .mobility-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .mobility-icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+
+    .mobility-card h3 {
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .mobility-card p {
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .mobility-price {
+      color: var(--secondary);
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .mobility-form {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .mobility-form h3 {
+      color: var(--primary);
+      font-size: 28px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .map-section {
+      padding: 80px 60px;
+      background-color: white;
+    }
+
+    .map-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 450px;
+      border: 0;
+    }
+
     .impact-section {
       background: linear-gradient(135deg, var(--dark), var(--primary));
       padding: 80px 60px;
@@ -644,7 +728,7 @@
 
     .testimonials {
       padding: 80px 60px;
-      background-color: var(--light);
+      background-color: white;
     }
 
     .testi-grid {
@@ -655,7 +739,7 @@
     }
 
     .testi-card {
-      background-color: white;
+      background-color: var(--light);
       border-radius: 20px;
       padding: 30px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
@@ -977,6 +1061,8 @@
 
       .menzels,
       .experiences,
+      .mobility-section,
+      .map-section,
       .testimonials,
       .impact-section,
       .reservation,
@@ -988,6 +1074,7 @@
 
       .menzels-grid,
       .exp-grid,
+      .mobility-grid,
       .impact-grid,
       .testi-grid,
       .footer-grid {
@@ -1024,6 +1111,10 @@
       .logo-text span {
         font-size: 10px;
       }
+
+      .map-container iframe {
+        height: 300px;
+      }
     }
   </style>
 </head>
@@ -1044,6 +1135,8 @@
     <ul>
       <li><a href="#menzels">Hébergements</a></li>
       <li><a href="#experiences">Expériences</a></li>
+      <li><a href="#mobilite">Mobilité</a></li>
+      <li><a href="#map">Carte</a></li>
       <li><a href="#impact">Impact</a></li>
       <li><a href="#temoignages">Avis</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -1058,7 +1151,7 @@
     <p>Préserver hier pour connecter demain</p>
     <div class="hero-btns">
       <a href="#reservation" class="btn-primary">Réserver un Menzel</a>
-      <a href="#menzels" class="btn-outline">Découvrir l'offre</a>
+      <a href="#mobilite" class="btn-outline">Réserver un transport</a>
     </div>
   </section>
 
@@ -1090,9 +1183,8 @@
       <span class="tag">🏡 Nos Hébergements</span>
       <h2>Choisissez votre Menzel</h2>
       <p>
-        Chaque Menzel est réhabilité avec des matériaux traditionnels et équipé
-        de solutions IoT pour optimiser l’eau, l’énergie et la connectivité,
-        conformément à la vision durable de Djerba Legacy.
+        Des Menzels traditionnels réhabilités, intelligents et durables, au cœur
+        du patrimoine djerbien.
       </p>
     </div>
 
@@ -1107,15 +1199,12 @@
           <div class="menzel-body">
             <h3>Menzel Al Baraka</h3>
             <div class="location">📍 Guellala, Djerba</div>
-            <p>
-              Un Menzel patrimonial restauré dans le respect de l’architecture
-              locale, avec gestion intelligente de l’eau et de l’énergie.
-            </p>
+            <p>Réhabilité avec des matériaux locaux et équipé de solutions IoT pour l’eau et l’énergie.</p>
             <div class="menzel-features">
-              <span class="feature-tag">📶 Wi-Fi Haut Débit</span>
+              <span class="feature-tag">📶 Wi-Fi</span>
               <span class="feature-tag">🌊 IoT Eau</span>
-              <span class="feature-tag">☀️ Énergie Optimisée</span>
-              <span class="feature-tag">🍽️ Gastronomie Locale</span>
+              <span class="feature-tag">☀️ Énergie</span>
+              <span class="feature-tag">🍽️ Gastronomie</span>
               <span class="feature-tag">🌿 Zéro Plastique</span>
             </div>
             <div class="menzel-footer">
@@ -1133,15 +1222,12 @@
           <div class="menzel-body">
             <h3>Menzel Erriadh</h3>
             <div class="location">📍 Erriadh, Djerba</div>
-            <p>
-              Une immersion culturelle au cœur d’Erriadh, combinant authenticité,
-              patrimoine et confort connecté pour les voyageurs éco-conscients.
-            </p>
+            <p>Une immersion culturelle au cœur d’Erriadh avec confort, authenticité et connectivité.</p>
             <div class="menzel-features">
-              <span class="feature-tag">🎨 Culture Locale</span>
+              <span class="feature-tag">🎨 Culture</span>
               <span class="feature-tag">📶 Internet</span>
               <span class="feature-tag">🏺 Artisanat</span>
-              <span class="feature-tag">💻 Travail à distance</span>
+              <span class="feature-tag">💻 Nomad Friendly</span>
               <span class="feature-tag">♻️ Durable</span>
             </div>
             <div class="menzel-footer">
@@ -1159,14 +1245,11 @@
           <div class="menzel-body">
             <h3>Menzel Connect</h3>
             <div class="location">📍 Houmt Souk, Djerba</div>
-            <p>
-              Pensé pour les digital nomads, avec connectivité résiliente, espace
-              de travail calme et immersion dans la vie locale djerbienne.
-            </p>
+            <p>Un Menzel pensé pour les digital nomads avec espace calme et connectivité haut débit.</p>
             <div class="menzel-features">
               <span class="feature-tag">💻 Coworking</span>
-              <span class="feature-tag">⚡ Internet Haut Débit</span>
-              <span class="feature-tag">🖥️ Espace Focus</span>
+              <span class="feature-tag">⚡ Internet</span>
+              <span class="feature-tag">🖥️ Focus</span>
               <span class="feature-tag">☕ Pause Locale</span>
               <span class="feature-tag">🌍 Smart Stay</span>
             </div>
@@ -1185,36 +1268,18 @@
     <div class="section-header" style="padding-top:0;padding-bottom:40px;">
       <span class="tag" style="color:#90e0ef;">📅 Réservation</span>
       <h2 style="color:white;">Réservez votre séjour</h2>
-      <p style="color:#ccc;">
-        Sélectionnez votre hébergement, vos dates et vos expériences culturelles.
-        Le modèle de réservation s’inscrit dans une offre premium éco-culturelle.
-      </p>
+      <p style="color:#ccc;">Sélectionnez votre hébergement et vos expériences immersives.</p>
     </div>
 
     <div class="reservation-container">
       <div class="reservation-left">
         <h3>Votre séjour Legacy commence ici</h3>
         <div class="reservation-info">
-          <div class="info-item">
-            <div class="icon">🏡</div>
-            <span>Menzels réhabilités et labellisés Legacy</span>
-          </div>
-          <div class="info-item">
-            <div class="icon">🌿</div>
-            <span>Objectif zéro plastique et gestion durable des ressources</span>
-          </div>
-          <div class="info-item">
-            <div class="icon">📱</div>
-            <span>Transparence écologique grâce aux solutions IoT</span>
-          </div>
-          <div class="info-item">
-            <div class="icon">🎨</div>
-            <span>Expériences culturelles, artisanales et gastronomiques</span>
-          </div>
-          <div class="info-item">
-            <div class="icon">✅</div>
-            <span>Confirmation sous 24h</span>
-          </div>
+          <div class="info-item"><div class="icon">🏡</div><span>Menzels intelligents et labellisés</span></div>
+          <div class="info-item"><div class="icon">🌿</div><span>Tourisme durable et zéro plastique</span></div>
+          <div class="info-item"><div class="icon">📱</div><span>Suivi écologique via technologies IoT</span></div>
+          <div class="info-item"><div class="icon">🎨</div><span>Expériences culturelles et gastronomiques</span></div>
+          <div class="info-item"><div class="icon">✅</div><span>Confirmation sous 24h</span></div>
         </div>
       </div>
 
@@ -1301,7 +1366,7 @@
           <button type="submit" class="btn-submit">🏡 Confirmer ma Réservation Legacy</button>
 
           <div class="success-msg" id="successMsg">
-            ✅ Votre réservation a été envoyée avec succès ! Notre équipe vous contactera dans les 24 heures.
+            ✅ Votre réservation a été envoyée avec succès !
           </div>
         </form>
       </div>
@@ -1312,10 +1377,7 @@
     <div class="section-header">
       <span class="tag">🎨 Nos Expériences</span>
       <h2>Vivez Djerba autrement</h2>
-      <p>
-        Une offre premium alliant patrimoine, artisanat, gastronomie et immersion
-        locale, comme prévu dans le concept Djerba Legacy.
-      </p>
+      <p>Patrimoine, artisanat, gastronomie et immersion locale.</p>
     </div>
 
     <div class="experiences" style="padding-top:0;">
@@ -1335,7 +1397,7 @@
         <div class="exp-card">
           <div class="exp-icon">🏛️</div>
           <h4>Circuit Patrimoine</h4>
-          <p>Découverte des sites et de la mémoire de l’île de Djerba.</p>
+          <p>Découverte du patrimoine historique et culturel de Djerba.</p>
           <div class="exp-price">À partir de 60 TND</div>
         </div>
         <div class="exp-card">
@@ -1348,6 +1410,120 @@
     </div>
   </section>
 
+  <section class="mobility-section" id="mobilite">
+    <div class="section-header" style="padding-top:0;">
+      <span class="tag">🚲 Mobilité douce</span>
+      <h2>Réserver votre moyen de transport</h2>
+      <p>
+        Complétez votre séjour Djerba Legacy avec une solution de mobilité douce.
+        Réservez votre trottinette ou votre bicyclette pour découvrir l’île de manière pratique, durable et authentique.
+      </p>
+    </div>
+
+    <div class="mobility-grid">
+      <div class="mobility-card">
+        <div class="mobility-icon">🛴</div>
+        <h3>Trottinette</h3>
+        <p>Une solution pratique et moderne pour circuler facilement entre les Menzels, les sites culturels et les expériences locales.</p>
+        <div class="mobility-price">À partir de 25 TND / jour</div>
+        <button class="btn-reserve" onclick="openMobility('Trottinette')">Réserver</button>
+      </div>
+
+      <div class="mobility-card">
+        <div class="mobility-icon">🚲</div>
+        <h3>Bicyclette</h3>
+        <p>Découvrez l’île à votre rythme avec une mobilité douce, authentique et respectueuse de l’environnement.</p>
+        <div class="mobility-price">À partir de 20 TND / jour</div>
+        <button class="btn-reserve" onclick="openMobility('Bicyclette')">Réserver</button>
+      </div>
+    </div>
+
+    <div class="mobility-form">
+      <h3>Formulaire de réservation – Moyen de transport</h3>
+      <form onsubmit="submitMobility(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>👤 Nom complet</label>
+            <input type="text" placeholder="Votre nom complet" required />
+          </div>
+          <div class="form-group">
+            <label>📧 Email</label>
+            <input type="email" placeholder="Votre adresse email" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>🚲 Type de transport</label>
+            <select id="mobilityType" required>
+              <option value="">-- Sélectionner --</option>
+              <option value="Trottinette">Trottinette</option>
+              <option value="Bicyclette">Bicyclette</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>📅 Durée</label>
+            <select required>
+              <option value="">-- Sélectionner --</option>
+              <option>1 jour</option>
+              <option>2 jours</option>
+              <option>3 jours</option>
+              <option>1 semaine</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>📅 Date de début</label>
+            <input type="date" required />
+          </div>
+          <div class="form-group">
+            <label>📍 Lieu de retrait</label>
+            <select required>
+              <option value="">-- Sélectionner --</option>
+              <option>Houmt Souk</option>
+              <option>Erriadh</option>
+              <option>Guellala</option>
+              <option>Menzel réservé</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>💬 Informations complémentaires</label>
+          <textarea placeholder="Précisions supplémentaires..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Réserver maintenant</button>
+
+        <div class="success-msg" id="mobilitySuccess">
+          ✅ Votre demande de réservation pour le moyen de transport a été envoyée avec succès !
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="map-section" id="map">
+    <div class="section-header" style="padding-top:0;">
+      <span class="tag">📍 Localisation</span>
+      <h2>Google Maps de Djerba</h2>
+      <p>
+        Situez facilement l’île de Djerba et préparez votre itinéraire vers nos Menzels,
+        nos expériences culturelles et nos points de retrait.
+      </p>
+    </div>
+
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps?q=Djerba,Tunisia&output=embed"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
   <section class="impact-section" id="impact">
     <h2>🌍 Notre Impact — Vision 2027</h2>
     <div class="impact-grid">
@@ -1357,15 +1533,15 @@
       </div>
       <div class="impact-card">
         <span class="num">0</span>
-        <p>Plastique à usage unique dans le réseau partenaire</p>
+        <p>Plastique à usage unique dans le réseau</p>
       </div>
       <div class="impact-card">
         <span class="num">40%</span>
-        <p>Réduction ciblée des déchets plastiques du secteur hôtelier</p>
+        <p>Réduction ciblée des déchets plastiques</p>
       </div>
       <div class="impact-card">
         <span class="num">IoT</span>
-        <p>Pilotage intelligent de l’eau et de l’énergie</p>
+        <p>Gestion intelligente de l’eau et de l’énergie</p>
       </div>
     </div>
   </section>
@@ -1378,9 +1554,7 @@
 
     <div class="testi-grid">
       <div class="testi-card">
-        <p>
-          Une expérience unique, entre authenticité, confort et conscience écologique.
-        </p>
+        <p>Une expérience unique, entre authenticité, confort et conscience écologique.</p>
         <div class="testi-author">
           <div class="testi-avatar">🇫🇷</div>
           <div class="testi-info">
@@ -1391,9 +1565,7 @@
       </div>
 
       <div class="testi-card">
-        <p>
-          Idéal pour travailler à distance tout en vivant une immersion culturelle réelle.
-        </p>
+        <p>Idéal pour travailler à distance tout en vivant une immersion culturelle réelle.</p>
         <div class="testi-author">
           <div class="testi-avatar">🇩🇪</div>
           <div class="testi-info">
@@ -1404,9 +1576,7 @@
       </div>
 
       <div class="testi-card">
-        <p>
-          Le projet valorise vraiment le patrimoine, l’artisanat et l’identité de Djerba.
-        </p>
+        <p>Le projet valorise vraiment le patrimoine, l’artisanat et l’identité de Djerba.</p>
         <div class="testi-author">
           <div class="testi-avatar">🇹🇳</div>
           <div class="testi-info">
@@ -1421,12 +1591,9 @@
   <section class="contact-section" id="contact">
     <div class="contact-left">
       <h2>Contactez-nous</h2>
-      <p>
-        Vous souhaitez réserver, devenir partenaire foncier, artisan ou soutenir
-        le projet Djerba Legacy ? Contactez notre équipe.
-      </p>
+      <p>Pour toute question sur les réservations, les partenariats ou les expériences Legacy.</p>
       <div class="contact-details">
-        <div class="contact-item"><span>📍</span><span>Île de Djerba, Gouvernorat de Médenine, Tunisie</span></div>
+        <div class="contact-item"><span>📍</span><span>Île de Djerba, Médenine, Tunisie</span></div>
         <div class="contact-item"><span>📧</span><span>contact@djerba-legacy.tn</span></div>
         <div class="contact-item"><span>📱</span><span>+216 XX XXX XXX</span></div>
         <div class="contact-item"><span>🏛️</span><span>Projet porté par OLM DJERBA</span></div>
@@ -1452,8 +1619,8 @@
           <div class="footer-logo-text">DJERBA LEGACY</div>
         </div>
         <p class="footer-desc">
-          Réseau de Menzels traditionnels intelligents à Djerba, fondé sur la
-          préservation du patrimoine, l’innovation IoT et le tourisme durable.
+          Réseau de Menzels traditionnels intelligents à Djerba, entre innovation,
+          patrimoine et tourisme durable.
         </p>
       </div>
 
@@ -1467,12 +1634,11 @@
       </div>
 
       <div class="footer-col">
-        <h4>Expériences</h4>
+        <h4>Mobilité</h4>
         <ul>
-          <li><a href="#">Gastronomie</a></li>
-          <li><a href="#">Poterie</a></li>
-          <li><a href="#">Tissage</a></li>
-          <li><a href="#">Patrimoine</a></li>
+          <li><a href="#">Trottinette</a></li>
+          <li><a href="#">Bicyclette</a></li>
+          <li><a href="#">Points de retrait</a></li>
         </ul>
       </div>
 
@@ -1486,10 +1652,10 @@
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
-  © 2026 <span>Djerba Legacy</span> — Tous droits réservés <br>
-  Conception et développement de cette page web : <span>Amer Gzam</span>
-</div>
+      © 2026 <span>Djerba Legacy</span> — Tous droits réservés
+    </div>
   </footer>
 
   <div class="modal" id="modal">
@@ -1501,10 +1667,8 @@
       <a href="#reservation" class="btn-primary" onclick="closeModal()" style="display:block; text-align:center;">
         📋 Remplir le formulaire
       </a>
-
     </div>
   </div>
-  
 
   <script>
     function openModal(name, price) {
@@ -1524,6 +1688,20 @@
       document.getElementById('reservationForm').reset();
       setTimeout(() => {
         document.getElementById('successMsg').style.display = 'none';
+      }, 5000);
+    }
+
+    function openMobility(type) {
+      document.getElementById('mobilityType').value = type;
+      document.getElementById('mobilite').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function submitMobility(e) {
+      e.preventDefault();
+      document.getElementById('mobilitySuccess').style.display = 'block';
+      e.target.reset();
+      setTimeout(() => {
+        document.getElementById('mobilitySuccess').style.display = 'none';
       }, 5000);
     }
 
